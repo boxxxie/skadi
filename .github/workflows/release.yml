@@ -57,6 +57,17 @@ jobs:
           fetch-depth: 0
           path: src
 
+      - name: Checkout hugi v0.1.4 (runner only)
+        uses: actions/checkout@v4
+        with:
+          repository: boxxxie/hugi
+          ref: v0.1.4
+          path: hugi
+          persist-credentials: false
+
+      - name: Init hugi obench submodule
+        run: git -C hugi submodule update --init deps/obench
+
       - name: Setup Odin compiler
         uses: laytan/setup-odin@v2
         with:

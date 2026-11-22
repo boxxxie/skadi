@@ -3,7 +3,8 @@ TESTS       := tests
 SPECS       := specs
 BIN         := bin
 CHECK_FLAGS := -vet -strict-style -disallow-do -warnings-as-errors
-HUGI_COL    := $(if $(wildcard ../hugi/hugi),-collection:hugi=../hugi/hugi,)
+HUGI_DIR    ?= ../hugi
+HUGI_COL    := $(if $(wildcard $(HUGI_DIR)/hugi),-collection:hugi=$(HUGI_DIR)/hugi,)
 
 # Apache Arrow C++ paths — prefer system pkg-config, fall back to bundled PyArrow.
 HAS_PKG_ARROW := $(shell pkg-config --exists arrow arrow-compute 2>/dev/null && echo 1 || echo 0)

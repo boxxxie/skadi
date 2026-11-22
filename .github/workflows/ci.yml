@@ -16,6 +16,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout hugi v0.1.4 (runner only)
+        uses: actions/checkout@v4
+        with:
+          repository: boxxxie/hugi
+          ref: v0.1.4
+          path: .tmp/hugi
+          persist-credentials: false
+
+      - name: Init hugi obench submodule
+        run: git -C .tmp/hugi submodule update --init deps/obench
+
       - name: Setup Odin compiler
         uses: laytan/setup-odin@v2
         with:
@@ -34,7 +45,7 @@ jobs:
           python3 -m pip install "pyarrow>=25.0.0" || python3 -m pip install pyarrow
 
       - name: Run strict static analysis across all packages
-        run: make check
+        run: HUGI_DIR=.tmp/hugi make check
 
       - name: Run unit, regression & 4-layer ATDD specification suites
         run: make test
