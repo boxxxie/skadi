@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 632" width="960" height="632" role="img" aria-label="Multi-Threaded &amp; Sleipnir Actor Pipeline Kernels">
+<style>
+  .bg { fill: #0d1117; }
+  .panel { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+  .grid { stroke: #21262d; stroke-width: 1; }
+  .title { fill: #f0f6fc; font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sub { fill: #8b949e; font: 400 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .lbl { fill: #c9d1d9; font: 500 11.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .tick { fill: #8b949e; font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .val { fill: #e6edf3; font: 600 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+<rect class="bg" width="960" height="632" rx="10"/>
+<rect class="panel" x="260" y="68" width="470" height="522" rx="4"/>
+<text class="title" x="24" y="30">Multi-Threaded &amp; Sleipnir Actor Pipeline Kernels</text>
+<text class="sub" x="24" y="49">Skadi 6bef9d5 · Multi-Threaded &amp; Sleipnir Actor Pipelines</text>
+<line class="grid" x1="260.0" y1="68" x2="260.0" y2="590"/>
+<text class="tick" x="260.0" y="608" text-anchor="middle">10 ps</text>
+<line class="grid" x1="416.7" y1="68" x2="416.7" y2="590"/>
+<text class="tick" x="416.7" y="608" text-anchor="middle">100 ps</text>
+<line class="grid" x1="573.3" y1="68" x2="573.3" y2="590"/>
+<text class="tick" x="573.3" y="608" text-anchor="middle">1 ns</text>
+<line class="grid" x1="730.0" y1="68" x2="730.0" y2="590"/>
+<text class="tick" x="730.0" y="608" text-anchor="middle">10 ns</text>
+<text class="lbl" x="250" y="94.0" text-anchor="end">filter_10m_i32_sparse (MT)</text>
+<rect x="260" y="81.0" width="61.8" height="20" rx="4" fill="#3fb950"/>
+<text class="val" x="329.8" y="95.0">24.80 ps (150.24 GB/s)</text>
+<text class="lbl" x="250" y="128.0" text-anchor="end">sum_10m_i32 (MT)</text>
+<rect x="260" y="115.0" width="148.4" height="20" rx="4" fill="#3fb950"/>
+<text class="val" x="416.4" y="129.0">88.53 ps (42.08 GB/s)</text>
+<text class="lbl" x="250" y="162.0" text-anchor="end">min_max_10m_i32 (MT)</text>
+<rect x="260" y="149.0" width="149.2" height="20" rx="4" fill="#3fb950"/>
+<text class="val" x="417.2" y="163.0">89.60 ps (41.58 GB/s)</text>
+<text class="lbl" x="250" y="196.0" text-anchor="end">dict_vc_1m_str (Actor)</text>
+<rect x="260" y="183.0" width="189.3" height="20" rx="4" fill="#79c0ff"/>
+<text class="val" x="457.3" y="197.0">161.56 ps (23.06 GB/s)</text>
+<text class="lbl" x="250" y="230.0" text-anchor="end">sum_10m_f64_nulls (MT)</text>
+<rect x="260" y="217.0" width="201.7" height="20" rx="4" fill="#79c0ff"/>
+<text class="val" x="469.7" y="231.0">193.85 ps (38.44 GB/s)</text>
+<text class="lbl" x="250" y="264.0" text-anchor="end">sum_10m_f64 (MT)</text>
+<rect x="260" y="251.0" width="203.7" height="20" rx="4" fill="#79c0ff"/>
+<text class="val" x="471.7" y="265.0">199.54 ps (37.34 GB/s)</text>
+<text class="lbl" x="250" y="298.0" text-anchor="end">agg_where_10m_f64 (Actor)</text>
+<rect x="260" y="285.0" width="205.6" height="20" rx="4" fill="#58a6ff"/>
+<text class="val" x="473.6" y="299.0">205.39 ps (72.55 GB/s)</text>
+<text class="lbl" x="250" y="332.0" text-anchor="end">filter_10m_i32 (MT)</text>
+<rect x="260" y="319.0" width="208.9" height="20" rx="4" fill="#58a6ff"/>
+<text class="val" x="476.9" y="333.0">215.38 ps (17.30 GB/s)</text>
+<text class="lbl" x="250" y="366.0" text-anchor="end">sel_2pred_sum (MT)</text>
+<rect x="260" y="353.0" width="229.4" height="20" rx="4" fill="#58a6ff"/>
+<text class="val" x="497.4" y="367.0">291.45 ps (76.69 GB/s)</text>
+<text class="lbl" x="250" y="400.0" text-anchor="end">sel_2pred_sum (Actor)</text>
+<rect x="260" y="387.0" width="232.6" height="20" rx="4" fill="#d2a8ff"/>
+<text class="val" x="500.6" y="401.0">305.09 ps (73.26 GB/s)</text>
+<text class="lbl" x="250" y="434.0" text-anchor="end">filter_1m_string (MT)</text>
+<rect x="260" y="421.0" width="255.3" height="20" rx="4" fill="#ffa657"/>
+<text class="val" x="523.3" y="435.0">426.15 ps (30.60 GB/s)</text>
+<text class="lbl" x="250" y="468.0" text-anchor="end">take_1m_i32 (MT)</text>
+<rect x="260" y="455.0" width="358.4" height="20" rx="4" fill="#ffa657"/>
+<text class="val" x="626.4" y="469.0">1.94 ns (5.76 GB/s)</text>
+<text class="lbl" x="250" y="502.0" text-anchor="end">sort_indices_1m_i32 (Actor)</text>
+<rect x="260" y="489.0" width="353.7" height="20" rx="4" fill="#f78166"/>
+<text class="val" x="621.7" y="503.0">1.81 ns (2.06 GB/s)</text>
+<text class="lbl" x="250" y="536.0" text-anchor="end">umbra_sort_100k_str (Actor)</text>
+<rect x="260" y="523.0" width="374.9" height="20" rx="4" fill="#f78166"/>
+<text class="val" x="642.9" y="537.0">2.47 ns (12.05 GB/s)</text>
+<text class="lbl" x="250" y="570.0" text-anchor="end">sort_indices_100k_str (Actor)</text>
+<rect x="260" y="557.0" width="382.3" height="20" rx="4" fill="#ff7b72"/>
+<text class="val" x="650.3" y="571.0">2.75 ns (6.76 GB/s)</text>
+</svg>

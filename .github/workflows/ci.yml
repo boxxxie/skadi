@@ -16,6 +16,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout temple v1.0.0
+        uses: actions/checkout@v4
+        with:
+          repository: boxxxie/temple
+          ref: v1.0.0
+          path: .tmp/temple
+          persist-credentials: false
+
       - name: Setup Odin compiler
         uses: laytan/setup-odin@v2
         with:
@@ -34,10 +42,15 @@ jobs:
           python3 -m pip install "pyarrow>=25.0.0" || python3 -m pip install pyarrow
 
       - name: Run strict static analysis across all packages
-        run: make check
+        run: |
+          make check
+          odin run .tmp/temple/cli -- --check --warn-unused benchmarks/render -out:benchmarks/render/templates_gen.odin -pkg:bench_render -temple-import:temple:.
+          odin check benchmarks/render -collection:temple=.tmp/temple -vet -strict-style -vet-tabs -warnings-as-errors -vet-packages:bench_render
 
       - name: Run unit, regression & 4-layer ATDD specification suites
-        run: make test
+        run: |
+          make test
+          odin test benchmarks/render -collection:temple=.tmp/temple -vet -strict-style -vet-tabs -warnings-as-errors -vet-packages:bench_render -define:ODIN_TEST_FANCY=false -define:ODIN_TEST_FAIL_ON_BAD_MEMORY=true
 
       - name: Verify package documentation generation
         run: |

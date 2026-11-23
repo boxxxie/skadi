@@ -1,0 +1,64 @@
+[Root README](../README.md) · **Suite Renders** · [Detailed 1v1 & PyArrow Report](RESULTS.md)
+
+# Skadi Benchmarks & Visual Renders
+
+Pure-Odin SIMD Arrow compute, compressed encodings (`Umbra_Array`, `RLE_Array`, `Dict_Array`), Sleipnir actor pipeline, and zero-copy `mmap`/`writev` IPC benchmark suite for **Skadi** (`{{ this.total_benchmarks | int }}` Odin benchmarks across `{{ this.group_count | int }}` groups, `{{ this.total_samples_str | raw }}` samples in [`history.hugidb`](history.hugidb), paired with `{{ this.cpp_count | int }}` Arrow C++ baselines at `{{ this.cpp_commit | raw }}`), with visual SVG charts rendered via [`temple`](https://github.com/boxxxie/temple) under [`renders/`](renders/).
+
+---
+
+## Visual Renders (`-o:speed`)
+
+### 1. Skadi (Odin) vs Arrow C++: Builders & Compute Kernels
+
+![Skadi Odin vs Arrow C++ Builders and Compute Kernels](renders/odin_vs_cpp_compute.svg)
+
+### 2. Skadi (Odin) vs Arrow C++: Fusion, Strings, Encodings & Zero-Copy IPC
+
+![Skadi Odin vs Arrow C++ Fusion, Strings, Encodings and IPC](renders/odin_vs_cpp_fusion_strings_ipc.svg)
+
+### 3. Multi-Threaded & Sleipnir Actor Pipeline Speedups
+
+![Multi-Threaded and Sleipnir Actor Pipeline Speedups](renders/actor_and_mt_speedups.svg)
+
+---
+
+## Reproducing & Regenerating Renders
+
+```bash
+# 1. Run the 1v1 Odin vs Arrow C++ statistical suite (requires PyArrow / Arrow C++)
+make bench-1v1
+
+# 2. Or run Odin benchmarks directly via hugi and append to benchmarks/history.hugidb
+hugi run benchmarks/odin --runs 5 --warmup 1
+
+# 3. Statistically compare the last two commits (Mann-Whitney U / Welch t-test)
+hugi compare --last --db benchmarks/history.hugidb
+
+# 4. Run 3-way Skadi / PyArrow / Arrow C++ comparison
+bash benchmarks/compare.sh
+
+# 5. Regenerate SVG charts in benchmarks/renders/ and tables below using temple AOT templates
+odin run benchmarks/render -collection:temple=../temple
+```
+
+---
+
+## Full Odin Benchmark Results (`{{ this.total_benchmarks | int }}` Benchmarks)
+
+<!-- BEGIN_BENCHMARK_TABLE -->
+{%- for group in this.groups %}
+### {{ group.title | raw }} (`{{ group.count | int }}` benchmarks)
+
+{%- if group.has_desc %}
+
+{{ group.desc | raw }}
+{%- end %}
+
+| Benchmark | Median (`p50`) | `P95` | Throughput / Ops | `CV%` | vs Arrow C++ | Allocs / op |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+{%- for row in group.rows %}
+| `{{ row.name | raw }}` | **{{ row.median | raw }}** | {{ row.p95 | raw }} | {{ row.ops | raw }} | {{ row.cv | raw }} | {{ row.vs_cpp | raw }} | {{ row.allocs | raw }} |
+{%- end %}
+
+{%- end %}
+<!-- END_BENCHMARK_TABLE -->

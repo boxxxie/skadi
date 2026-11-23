@@ -173,11 +173,12 @@ multi-threading and the Sleipnir actor pipeline.** Key architectural drivers:
   `2.91×`) and lazy `mmap` reads (`0.02 ms`, `7.17×`) cut IPC heap buffer copies
   to `0.0 MB` (vs `38.1 MB` in Arrow C++).
 
-Full statistical results (Welch's z-tests, CV%, bandwidth `GB/s`, allocation
-telemetry, and 3-way PyArrow comparisons) live in
-[`benchmarks/RESULTS.md`](benchmarks/RESULTS.md).
+![Skadi Odin vs Arrow C++ Builders and Compute Kernels](benchmarks/renders/odin_vs_cpp_compute.svg)
+
+Visual renders ([`benchmarks/renders/`](benchmarks/renders/)), hugi suite tables ([`benchmarks/README.md`](benchmarks/README.md)), and full statistical results (Welch's z-tests, CV%, bandwidth `GB/s`, allocation telemetry, and 3-way PyArrow comparisons) live in [`benchmarks/RESULTS.md`](benchmarks/RESULTS.md).
 
 Reproduce:
+- `odin run benchmarks/render -collection:temple=../temple` — regenerate SVG renders in `benchmarks/renders/` and `benchmarks/README.md` from `benchmarks/history.hugidb`.
 - `make bench-1v1` — build and run the statistical 1v1 suite (Odin vs Arrow C++),
   saving `benchmarks/odin.jsonl`, `benchmarks/cpp.jsonl`, and `benchmarks/history.jsonl`
   (or `python3 benchmarks/compare_1v1.py --from-jsonl` to print from saved JSONL).
@@ -224,8 +225,8 @@ tests_cpp/               Arrow C++ FFI layout & IPC parity tests (14 tests, `mak
 examples/quickstart/     a runnable tour of the API
 examples/csv_to_parquet/ native CSV -> Parquet CLI example
 examples/parquet_to_csv/ native Parquet -> CSV CLI example
-benchmarks/              odin / python / cpp / FFI runners + compare_1v1.py (`make bench-1v1`)
-                         + compare.sh + RESULTS.md
+benchmarks/              odin / python / cpp / FFI runners + render/ + renders/
+                         + compare_1v1.py (`make bench-1v1`) + RESULTS.md
 ```
 
 ## License

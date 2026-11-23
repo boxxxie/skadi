@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 610" width="980" height="610" role="img" aria-label="Skadi (Odin) vs Arrow C++: Fusion, Strings &amp; IPC">
+<style>
+  .bg { fill: #0d1117; }
+  .panel { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+  .grid { stroke: #21262d; stroke-width: 1; }
+  .title { fill: #f0f6fc; font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .sub { fill: #8b949e; font: 400 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .lbl { fill: #c9d1d9; font: 500 11.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .tick { fill: #8b949e; font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .val { fill: #e6edf3; font: 600 10.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .spd { fill: #3fb950; font: 700 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .legend { fill: #c9d1d9; font: 500 11.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+</style>
+<rect class="bg" width="980" height="610" rx="10"/>
+<rect class="panel" x="230" y="92" width="460" height="476" rx="4"/>
+<text class="title" x="24" y="30">Skadi (Odin) vs Arrow C++: Fusion, Strings &amp; IPC</text>
+<text class="sub" x="24" y="49">Skadi 6bef9d5 vs Arrow C++ 6bef9d509d5b · -o:speed -microarch:native</text>
+<rect x="24" y="60" width="12" height="8" rx="2" fill="#3fb950"/>
+<text class="legend" x="42" y="68">Skadi (Odin)</text>
+<rect x="210" y="60" width="12" height="8" rx="2" fill="#f78166"/>
+<text class="legend" x="228" y="68">Arrow C++</text>
+<line class="grid" x1="230.0" y1="92" x2="230.0" y2="568"/>
+<text class="tick" x="230.0" y="586" text-anchor="middle">100 ps</text>
+<line class="grid" x1="383.3" y1="92" x2="383.3" y2="568"/>
+<text class="tick" x="383.3" y="586" text-anchor="middle">1 ns</text>
+<line class="grid" x1="536.7" y1="92" x2="536.7" y2="568"/>
+<text class="tick" x="536.7" y="586" text-anchor="middle">10 ns</text>
+<line class="grid" x1="690.0" y1="92" x2="690.0" y2="568"/>
+<text class="tick" x="690.0" y="586" text-anchor="middle">100 ns</text>
+<text class="lbl" x="220" y="122.0" text-anchor="end">string_build_1m</text>
+<rect x="230" y="104.0" width="208.2" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="446.2" y="114.0">2.28 ns (5.72 GB/s)</text>
+<rect x="230" y="120.0" width="222.4" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="460.4" y="130.0">2.82 ns (5.01 GB/s)</text>
+<text class="spd" x="962" y="122.0" text-anchor="end">1.24x faster</text>
+<text class="lbl" x="220" y="164.0" text-anchor="end">string_scan_1m</text>
+<rect x="230" y="146.0" width="123.2" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="361.2" y="156.0">635.93 ps (19.04 GB/s)</text>
+<rect x="230" y="162.0" width="129.5" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="367.5" y="172.0">699.56 ps (19.91 GB/s)</text>
+<text class="spd" x="962" y="164.0" text-anchor="end">1.10x faster</text>
+<text class="lbl" x="220" y="206.0" text-anchor="end">filter_1m_string (ST)</text>
+<rect x="230" y="188.0" width="212.9" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="450.9" y="198.0">2.45 ns (5.33 GB/s)</text>
+<rect x="230" y="204.0" width="225.6" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="463.6" y="214.0">2.96 ns (4.74 GB/s)</text>
+<text class="spd" x="962" y="206.0" text-anchor="end">1.21x faster</text>
+<text class="lbl" x="220" y="248.0" text-anchor="end">sort_indices_100k_str</text>
+<rect x="230" y="230.0" width="322.8" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="560.8" y="240.0">12.74 ns (1.46 GB/s)</text>
+<rect x="230" y="246.0" width="426.1" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="664.1" y="256.0">60.10 ns (337.9 MB/s)</text>
+<text class="spd" x="962" y="248.0" text-anchor="end">4.72x faster</text>
+<text class="lbl" x="220" y="290.0" text-anchor="end">sum_where_10m_f64</text>
+<rect x="230" y="272.0" width="106.0" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="344.0" y="282.0">491.54 ps (15.16 GB/s)</text>
+<rect x="230" y="288.0" width="214.2" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="452.2" y="298.0">2.49 ns (3.26 GB/s)</text>
+<text class="spd" x="962" y="290.0" text-anchor="end">5.07x faster</text>
+<text class="lbl" x="220" y="332.0" text-anchor="end">agg_where_10m_f64</text>
+<rect x="230" y="314.0" width="121.8" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="359.8" y="324.0">622.67 ps (23.93 GB/s)</text>
+<rect x="230" y="330.0" width="218.6" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="456.6" y="340.0">2.67 ns (6.00 GB/s)</text>
+<text class="spd" x="962" y="332.0" text-anchor="end">4.28x faster</text>
+<text class="lbl" x="220" y="374.0" text-anchor="end">sel_2pred_sum_10m_f64</text>
+<rect x="230" y="356.0" width="146.7" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="384.7" y="366.0">905.41 ps (24.69 GB/s)</text>
+<rect x="230" y="372.0" width="182.4" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="420.4" y="382.0">1.55 ns (15.51 GB/s)</text>
+<text class="spd" x="962" y="374.0" text-anchor="end">1.71x faster</text>
+<text class="lbl" x="220" y="416.0" text-anchor="end">dict_vc_1m_str</text>
+<rect x="230" y="398.0" width="106.6" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="344.6" y="408.0">495.36 ps (7.52 GB/s)</text>
+<rect x="230" y="414.0" width="240.5" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="478.5" y="424.0">3.70 ns (1.08 GB/s)</text>
+<text class="spd" x="962" y="416.0" text-anchor="end">7.47x faster</text>
+<text class="lbl" x="220" y="458.0" text-anchor="end">umbra_sort_100k_str</text>
+<rect x="230" y="440.0" width="321.9" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="559.9" y="450.0">12.58 ns (2.37 GB/s)</text>
+<rect x="230" y="456.0" width="428.3" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="666.3" y="466.0">62.16 ns (327.7 MB/s)</text>
+<text class="spd" x="962" y="458.0" text-anchor="end">4.94x faster</text>
+<text class="lbl" x="220" y="500.0" text-anchor="end">ipc_write_10m_i32</text>
+<rect x="230" y="482.0" width="136.5" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="374.5" y="492.0">776.28 ps (4.80 GB/s)</text>
+<rect x="230" y="498.0" width="193.2" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="431.2" y="508.0">1.82 ns (2.20 GB/s)</text>
+<text class="spd" x="962" y="500.0" text-anchor="end">2.34x faster</text>
+<text class="lbl" x="220" y="542.0" text-anchor="end">ipc_roundtrip_10m_i32</text>
+<rect x="230" y="524.0" width="138.7" height="12" rx="3" fill="#3fb950"/>
+<text class="val" x="376.7" y="534.0">803.10 ps (4.64 GB/s)</text>
+<rect x="230" y="540.0" width="218.9" height="12" rx="3" fill="#f78166"/>
+<text class="val" x="456.9" y="550.0">2.68 ns (1.49 GB/s)</text>
+<text class="spd" x="962" y="542.0" text-anchor="end">3.33x faster</text>
+</svg>
