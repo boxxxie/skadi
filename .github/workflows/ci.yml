@@ -16,13 +16,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Checkout temple v1.0.0
+      - name: Checkout temple
         uses: actions/checkout@v4
         with:
           repository: boxxxie/temple
-          ref: v1.0.0
+          ref: main
           path: .tmp/temple
           persist-credentials: false
+
+      - name: Checkout hugi v0.2.0 (runner only)
+        uses: actions/checkout@v4
+        with:
+          repository: boxxxie/hugi
+          ref: v0.2.0
+          path: .tmp/hugi
+          persist-credentials: false
+
+      - name: Init hugi obench submodule
+        run: git -C .tmp/hugi submodule update --init deps/obench
 
       - name: Setup Odin compiler
         uses: laytan/setup-odin@v2
