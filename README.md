@@ -178,7 +178,7 @@ multi-threading and the Sleipnir actor pipeline.** Key architectural drivers:
 Visual renders ([`benchmarks/renders/`](benchmarks/renders/)), hugi suite tables ([`benchmarks/README.md`](benchmarks/README.md)), and full statistical results (Welch's z-tests, CV%, bandwidth `GB/s`, allocation telemetry, and 3-way PyArrow comparisons) live in [`benchmarks/RESULTS.md`](benchmarks/RESULTS.md).
 
 Reproduce:
-- `odin run benchmarks/render -collection:temple=../temple` — regenerate SVG renders in `benchmarks/renders/` and `benchmarks/README.md` from `benchmarks/history.hugidb`.
+- `odin run benchmarks/render -collection:runa=../runa` — regenerate SVG renders in `benchmarks/renders/` and `benchmarks/README.md` from `benchmarks/history.hugidb`.
 - `make bench-1v1` — build and run the statistical 1v1 suite (Odin vs Arrow C++),
   saving `benchmarks/odin.jsonl`, `benchmarks/cpp.jsonl`, and `benchmarks/history.jsonl`
   (or `python3 benchmarks/compare_1v1.py --from-jsonl` to print from saved JSONL).
