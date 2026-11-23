@@ -2,7 +2,7 @@
 
 # Skadi Benchmarks & Visual Renders
 
-Pure-Odin SIMD Arrow compute, compressed encodings (`Umbra_Array`, `RLE_Array`, `Dict_Array`), Sleipnir actor pipeline, and zero-copy `mmap`/`writev` IPC benchmark suite for **Skadi** (`42` Odin benchmarks across `6` groups, `292` samples in [`history.hugidb`](history.hugidb), paired with `26` Arrow C++ baselines at `6bef9d509d5b`), with visual SVG charts rendered via [`temple`](https://github.com/boxxxie/temple) under [`renders/`](renders/).
+Pure-Odin SIMD Arrow compute, compressed encodings (`Umbra_Array`, `RLE_Array`, `Dict_Array`), Sleipnir actor pipeline, and zero-copy `mmap`/`writev` IPC benchmark suite for **Skadi** (`42` Odin benchmarks across `6` groups, `292` samples in [`history.hugidb`](history.hugidb), paired with `26` Arrow C++ baselines at `6bef9d509d5b`), with visual SVG charts rendered via [`runa`](https://github.com/boxxxie/runa) under [`renders/`](renders/).
 
 ---
 
@@ -37,8 +37,8 @@ hugi compare --last --db benchmarks/history.hugidb
 # 4. Run 3-way Skadi / PyArrow / Arrow C++ comparison
 bash benchmarks/compare.sh
 
-# 5. Regenerate SVG charts in benchmarks/renders/ and tables below using temple AOT templates
-odin run benchmarks/render -collection:temple=../temple
+# 5. Regenerate SVG charts in benchmarks/renders/ and tables below using runa AOT templates
+odin run benchmarks/render -collection:runa=../runa
 ```
 
 ---
