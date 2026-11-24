@@ -1,6 +1,6 @@
 /*
 Package `pipeline` provides a cache-resident Sleipnir actor execution pipeline
-(`Morsel_Pipeline`) for Skadi columnar analytics, built on `deps/sleipnir/actor`.
+(`Morsel_Pipeline`) for Skadi columnar analytics, built on `actor:.` (`sleipnir/actor`).
 
 It dispatches coarsened super-morsels over pooled MPSC work batches
 (`Envelope_Pool` + `mpsc_push_chain`), processes L1d/L2-resident `u16` morsel
@@ -14,7 +14,7 @@ import "base:intrinsics"
 import "core:mem"
 import "core:sync"
 import oa ".."
-import actor "../../deps/sleipnir/actor"
+import actor "actor:."
 
 // Cache-resident Sleipnir actor morsel pipeline using pooled MPSC work batches
 // (`Envelope_Pool` + `mpsc_push_chain`), coarsened super-morsels stepped across
